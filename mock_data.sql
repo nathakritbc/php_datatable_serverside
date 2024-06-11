@@ -13837,5 +13837,4 @@ values (
         'kauselloo0@thetimes.co.uk',
         '2024-05-10 07:37:06'
     );
-
-insert into users ( id, first_name, 
+ 
