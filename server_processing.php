@@ -21,13 +21,15 @@ $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;
 
 $sql = "SELECT * FROM users WHERE 1=1";
+$search = $request['search']['value'];
 
 // ฟังชั่นค้นหา
-if (!empty($request['search']['value'])) {
-    $sql .= " AND (first_name LIKE '%" . $request['search']['value'] . "%' ";
-    $sql .= " OR last_name LIKE '%" . $request['search']['value'] . "%' ";
-    $sql .= " OR email LIKE '%" . $request['search']['value'] . "%')";
+if (!empty($search)) {
+    $sql .= " AND (first_name LIKE '%{$search}%'
+              OR last_name LIKE '%{$request['search']['value']}%' 
+              OR email LIKE '%{$request['search']['value']}%')";
 }
+
 $query = mysqli_query($conn, $sql);
 $totalFiltered = mysqli_num_rows($query);
 
