@@ -21,7 +21,7 @@ $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;
 
 $sql = "SELECT * FROM users WHERE 1=1";
-$search = $request['search']['value'];
+@$search = $request['search']['value'];
 
 // ฟังชั่นค้นหา
 if (!empty($search)) {
