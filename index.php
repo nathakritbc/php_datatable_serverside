@@ -10,19 +10,23 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h2 class="mb-4">Users Table</h2>
-        <table id="userTable" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Created At</th>
-                </tr>
-            </thead>
-        </table>
+    <div class="container my-5">
+        <h2 class="my-4 text-primary text-center">DataTable Server-Side Processing</h2>
+        <div class="px-3">
+            <h4 class="my-4">User Data</h4>
+            <table id="userTable" class="table border table-responsive" style="width:100%">
+                <thead>
+                    <tr class="text-nowrap">
+                        <th class="dt-head-center">ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -33,8 +37,10 @@
             processing: true,
             serverSide: true,
             ajax: "./server_processing_pdo.php",
+            responsive: true,
             columns: [{
-                    data: "id"
+                    data: "id",
+                    className: 'dt-body-center'
                 },
                 {
                     data: "first_name"
