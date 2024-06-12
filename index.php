@@ -32,7 +32,7 @@
         $("#userTable").DataTable({
             processing: true,
             serverSide: true,
-            ajax: "server_processing.php",
+            ajax: "./server_processing_pdo.php",
             columns: [{
                     data: "id"
                 },
