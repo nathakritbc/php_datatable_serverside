@@ -20,12 +20,11 @@ $query = mysqli_query($conn, $sql);
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;
 
-$sql = "SELECT * FROM users WHERE 1=1";
-@$search = $request['search']['value'];
+$sql = "SELECT * FROM users WHERE 1=1"; 
 
 // ฟังชั่นค้นหา
-if (!empty($search)) {
-    $sql .= " AND (first_name LIKE '%{$search}%'
+if (isset($request['search']['value'])) {
+    $sql .= " AND (first_name LIKE '%{$request['search']['value']}%'
               OR last_name LIKE '%{$request['search']['value']}%' 
               OR email LIKE '%{$request['search']['value']}%')";
 }

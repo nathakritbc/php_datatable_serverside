@@ -24,7 +24,7 @@ $totalData = $stmt->rowCount();
 $totalFilter = $totalData;
 
 $sql = "SELECT * FROM users WHERE 1=1";
-if (!empty($request['search']['value'])) {
+if (!isset($request['search']['value'])) {
     $sql .= " AND (first_name LIKE :search OR last_name LIKE :search OR email LIKE :search)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':search', '%' . $request['search']['value'] . '%', PDO::PARAM_STR);
